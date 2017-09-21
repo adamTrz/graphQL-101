@@ -1,0 +1,106 @@
+import React from 'react';
+import { gql, graphql } from 'react-apollo';
+
+const FeedQuery = gql`query allPosts {
+  users(orderBy: $orderBy, skip: $skip, take: $take) {
+    id
+    imageUrl
+    description
+  }
+}`;
+
+type Props = {
+  loading: boolean,
+  allPosts: {
+    total: number,
+    data: Array<Post>,
+  },
+  refetch: () => Promise<*>,
+  loadMore: () => Promise<*>,
+};
+
+class ListPage extends Component<Props> {
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.key !== nextProps.location.key) {
+      this.props.data.refetch();
+    }
+  }
+
+  render() {
+    if (this.props.postsLoading) {
+      return (
+        <div className="flex w-100 h-100 items-center justify-center pt7">
+          <div>
+            Loading
+          </div>
+        </div>
+      );
+    }
+
+    let blurClass = '';
+
+    if (this.props.location.pathname !== '/') {
+      blurClass = ' blur';
+    }
+
+    return (
+      <div className={`w-100 flex justify-center pa6${blurClass}`}>
+        <div className="w-100 flex flex-wrap" style={{ maxWidth: 1150 }}>
+          <Link
+            to="/create"
+            className="ma3 box new-post br2 flex flex-column items-center justify-center ttu fw6 f20 black-30 no-underline"
+          >
+            <img
+              src={require('../assets/plus.svg')}
+              alt=""
+              className="plus mb3"
+            />
+            <div>New Post</div>
+          </Link>
+          {this.props.userPosts.map(post =>
+            <Post
+              key={post.id}
+              post={post}
+              refresh={this.props.refetchPosts}
+            />,
+          )}
+        </div>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+export default graphql(FeedQuery, {
+  options: props => ({
+    variables: { orderBy: props.orderBy, skip: 0, take: 100 },
+  }),
+  props: ({ ownProps, data: { loading, allPosts, refetch, fetchMore } }) => ({
+    loading,
+    allPosts,
+    refetch,
+    loadMore: () => {
+      if (allPosts.data.length >= allPosts.total) return;
+      return fetchMore({
+        variables: {
+          orderBy: ownProps.orderBy,
+          skip: allPosts.data.length,
+          take: 100,
+        },
+        updateQuery: (previousResults, { fetchMoreResult }) => {
+          if (!fetchMoreResult.allPosts.data) return previousResults;
+          return {
+            allPosts: {
+              total: fetchMoreResult.total,
+              data: [
+                ...previousResults.allPosts.data,
+                ...fetchMoreResult.allPosts.data,
+              ],
+              __typename: 'UserPost',
+            },
+          };
+        },
+      });
+    },
+  }),
+})(ListPage);

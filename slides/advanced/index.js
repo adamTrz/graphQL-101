@@ -1,6 +1,6 @@
 import pagination from './pagination';
-import refetch from './refetch';
+import dataId from './data-id';
 import optimistic from './optimistic-response';
 import update from './store-update';
 
-export default [pagination, refetch, optimistic, update];
+export default [pagination, dataId, optimistic, update];

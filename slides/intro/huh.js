@@ -5,7 +5,7 @@ import { backgroundWithImage } from 'styles';
 
 const notes = `
   1. just a language - not a framework, lib  or anything
-  2. strongly typed
+  2. strongly typed - developers do know what can they get from and how. (similar to Swagger but much cooler :D)
   3. thats a "why?", we'll get to it ;)
 `;
 

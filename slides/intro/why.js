@@ -7,8 +7,8 @@ const notes = `
   1. Speeds up development experience and pleasure
   2. Also - mobile friendly (minimises traffic) 
   3. Applications can easily scale 
-  4. More - database agnostic and effectively can be used in any context where an API is used. 
-  5. Different frameworks, languages and platforms: frontend: Vue, Angular, Ember, Expo. Server: JS, Ruby, Java, Elixir, Python 
+  3.1. More - database agnostic and effectively can be used in any context where an API is used. 
+  3.2. Different frameworks, languages and platforms: frontend: Vue, Angular, Ember, Expo. Server: JS, Ruby, Java, Elixir, Python 
 `;
 
 export default (

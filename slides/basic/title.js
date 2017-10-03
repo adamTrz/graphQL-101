@@ -1,7 +1,8 @@
 import React from 'react';
-import { Slide, Heading } from 'spectacle';
+import { Slide, Heading, Image, Appear } from 'spectacle';
 
 import { backgroundWithImage } from 'styles';
+import images from 'images';
 
 const notes = `
   1. Basic app -  pictures gallery.
@@ -18,5 +19,8 @@ export default (
     <Heading size={2} fill textColor="secondary" margin="0 0 100px">
       How to use it then?
     </Heading>
+    <Appear fid="1">
+      <Image src={images.gif} width="670px" height="390px" />
+    </Appear>
   </Slide>
 );

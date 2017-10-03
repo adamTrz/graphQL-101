@@ -2,8 +2,14 @@ import React from 'react';
 import CodeSlide from 'spectacle-code-slide';
 import { backgroundWithImage } from 'styles';
 
+const notes = `
+  1. Another way, besides 'refetch' of controlling store shape.
+  2. Optimistic UI is a pattern that you can use to simulate the results of a mutation and update the UI even before receiving a response from the server. Once the response is received from the server, optimistic result is thrown away and replaced with the actual result.
+`;
+
 export default (
   <CodeSlide
+    notes={notes}
     style={backgroundWithImage}
     bgColor="#171E26"
     key="advanced3"

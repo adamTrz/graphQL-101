@@ -2,8 +2,14 @@ import React from 'react';
 import CodeSlide from 'spectacle-code-slide';
 import { backgroundWithImage } from 'styles';
 
+const notes = `
+  1. Most fine grained way to update cache.
+  2. We can access and reshape all data in our store automatically.
+`;
+
 export default (
   <CodeSlide
+    notes={notes}
     style={backgroundWithImage}
     bgColor="#171E26"
     key="advanced4"

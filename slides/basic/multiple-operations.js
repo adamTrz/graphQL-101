@@ -2,11 +2,16 @@ import React from 'react';
 import CodeSlide from 'spectacle-code-slide';
 import { backgroundWithImage } from 'styles';
 
+const notes = `
+  1. We can have more than one graphql operation in our component.
+`;
+
 export default (
   <CodeSlide
+    notes={notes}
     style={backgroundWithImage}
     bgColor="#171E26"
-    key="basics4"
+    key="basics5"
     transition={['fade']}
     lang="js"
     code={require('raw-loader!assets/code/multiple-operations.example')}

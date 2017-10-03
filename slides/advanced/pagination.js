@@ -2,8 +2,17 @@ import React from 'react';
 import CodeSlide from 'spectacle-code-slide';
 import { backgroundWithImage } from 'styles';
 
+const notes = `
+  1. Displaying large lists of data? Pagination to the rescue!
+  2. Two most common solutions - 'Offset based' and 'Cursor based'
+  3. Depending on how our database accepts query parameters we need to send those as query variables.
+  4. Then, in our 'loadMore' handler, we need to define 'fetchMore' with two options: 
+  'varibales' (what will be sent to the server) and 'updateQuery' (what we want to do we recieved data).
+`;
+
 export default (
   <CodeSlide
+    notes={notes}
     style={backgroundWithImage}
     bgColor="#171E26"
     key="advanced1"

@@ -4,8 +4,8 @@ import { Slide, Heading } from 'spectacle';
 import { backgroundWithImage } from 'styles';
 
 const notes = `
-  1. Basic app - posts list with user data and comments....
-  2. Stack: React and ApolloGraphQL
+  1. Basic app -  pictures gallery.
+  2. Stack: React and ApolloGraphQL at frontend, GraphCool at backend.
 `;
 // TODO: Add gif of working app?
 export default (

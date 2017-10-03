@@ -2,11 +2,17 @@ import React from 'react';
 import CodeSlide from 'spectacle-code-slide';
 import { backgroundWithImage } from 'styles';
 
+const notes = `
+  1. Sometimes it's cumbersome to acces our data by always typing 'this.props.data.ourData'...
+  2. What if there's a way to shorten this up a bit?
+`;
+
 export default (
   <CodeSlide
+    notes={notes}
     style={backgroundWithImage}
     bgColor="#171E26"
-    key="basics6"
+    key="basics7"
     transition={['fade']}
     lang="js"
     code={require('raw-loader!assets/code/props-transformation.example')}

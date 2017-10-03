@@ -8,7 +8,7 @@ const notes = `
   1. Basic app -  pictures gallery.
   2. Stack: React and ApolloGraphQL at frontend, GraphCool at backend.
 `;
-// TODO: Add gif of working app?
+
 export default (
   <Slide
     notes={notes}
